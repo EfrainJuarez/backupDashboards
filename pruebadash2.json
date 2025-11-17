@@ -1,0 +1,3892 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 4509,
+  "links": [],
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 36,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<h2 style=\"text-align: left; font-weight: bold; font-family: 'Flexo';\">\n  🚀 IT Operation Management - Mainframe Top Transactions BCP 📈📉\n</h2>",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 19,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div \n  style=\"\n    font-size: 20px;\n    font-weight: bold; \n    font-family: 'Flexo'; \n    display: flex; \n    justify-content: left; \n    align-items: center; \n    height: 30px;\n    margin-bottom: 0;\n    border-radius: 2px 20px 20px 2px;\n    background: #002D74;\n    background: linear-gradient(90deg, rgba(0, 45, 116, 1) 0%, rgba(225, 79, 0, 1) 100%);\n  \"\n>\n  <span style=\"margin-top: 4px; margin-left: 20px;\">M O B I L E   B A N K I N G</span>\n</div>",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 50
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 4
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"BM0N\", \r\n\t\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"BM0N\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"BM0N\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "BM0N",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 4
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"BMN0\", \r\n\t\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"BMN0\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"BMN0\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "BMN0",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 4
+      },
+      "id": 21,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"BMQM\", \r\n\t\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"BMQM\", \r\n\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"BMQM\", \r\n\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "BMQM - Transferencias Propias / Terceros BCP",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 13
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"BMNE\", \r\n\t\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"BMNE\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"BMNE\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "BMNE",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 13
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"BM1O\", \r\n\t\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"BM1O\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"BM1O\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "BM1O",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 13
+      },
+      "id": 28,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"BMNH\", \r\n\t\t\t\tzos_cics_region_name=~\"A32.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"BMNH\", \r\n\t\t\tzos_cics_region_name=~\"A32.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"BMNH\", \r\n\t\t\tzos_cics_region_name=~\"A32.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "BMNH - Transferencias Interbancarias",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 22
+      },
+      "id": 22,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div \n  style=\"\n    font-size: 20px;\n    font-weight: bold; \n    font-family: 'Flexo'; \n    display: flex; \n    justify-content: left; \n    align-items: center; \n    height: 30px;\n    margin-bottom: 0;\n    border-radius: 2px 20px 20px 2px;\n    background: #002D74;\n    background: linear-gradient(90deg, rgba(0, 45, 116, 1) 0%, rgba(225, 79, 0, 1) 100%);\n  \"\n>\n  <span style=\"margin-top: 4px; margin-left: 20px;\">YAPE</span>\n</div>",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 24
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"YPQM\", \r\n\t\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"YPQM\", \r\n\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"YPQM\", \r\n\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "YPQM - Yapeos BCP a BCP",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 24
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"YP5Y\", \r\n\t\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"YP5Y\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"YP5Y\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "YP5Y",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 24
+      },
+      "id": 25,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009.patch4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"YPNH\", \r\n\t\t\t\tzos_cics_region_name=~\"A32.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"YPNH\", \r\n\t\t\tzos_cics_region_name=~\"A32.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"YPNH\", \r\n\t\t\tzos_cics_region_name=~\"A32.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "YPNH - Transferencias Interbancarias",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 33
+      },
+      "id": 24,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"YPNE\", \r\n\t\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"YPNE\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"YPNE\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "YPNE - Pago de Servicios",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 33
+      },
+      "id": 26,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\">SY2\", \r\n\t\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\">SY2\", \r\n\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\">SY2\", \r\n\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": ">SY2 - Interoperabilidad desde POS",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 33
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\">SYB\",\r\n\t\t\t\tzos_cics_region_name=~ \"A5.*\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\">SYB\",\r\n\t\t\tzos_cics_region_name=~ \"A5.*\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\">SYB\",\r\n\t\t\tzos_cics_region_name=~ \"A5.*\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": ">SYB",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 27,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div \n  style=\"\n    font-size: 20px;\n    font-weight: bold; \n    font-family: 'Flexo'; \n    display: flex; \n    justify-content: left; \n    align-items: center; \n    height: 30px;\n    margin-bottom: 0;\n    border-radius: 2px 20px 20px 2px;\n    background: #002D74;\n    background: linear-gradient(90deg, rgba(0, 45, 116, 1) 0%, rgba(225, 79, 0, 1) 100%);\n  \"\n>\n  <span style=\"margin-top: 4px; margin-left: 20px;\">TTIB - TRANSACCIONES INTERBANCARIAS</span>\n</div>",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 44
+      },
+      "id": 29,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"QTI1\", \r\n\t\t\t\tzos_cics_region_name=~\"AQ2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"QTI1\", \r\n\t\t\tzos_cics_region_name=~\"AQ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"QTI1\", \r\n\t\t\tzos_cics_region_name=~\"AQ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "QTI1",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 44
+      },
+      "id": 30,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"QTI2\", \r\n\t\t\t\tzos_cics_region_name=~\"AQ2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"QTI2\", \r\n\t\t\tzos_cics_region_name=~\"AQ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"QTI2\", \r\n\t\t\tzos_cics_region_name=~\"AQ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "QTI2",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 44
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"QTI3\", \r\n\t\t\t\tzos_cics_region_name=~\"AQ2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"QTI3\", \r\n\t\t\tzos_cics_region_name=~\"AQ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"QTI3\", \r\n\t\t\tzos_cics_region_name=~\"AQ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "QTI3",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 16,
+        "x": 0,
+        "y": 53
+      },
+      "id": 31,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div \n  style=\"\n    font-size: 20px;\n    font-weight: bold; \n    font-family: 'Flexo'; \n    display: flex; \n    justify-content: left; \n    align-items: center; \n    height: 30px;\n    margin-bottom: 0;\n    border-radius: 2px 20px 20px 2px;\n    background: #002D74;\n    background: linear-gradient(90deg, rgba(0, 45, 116, 1) 0%, rgba(225, 79, 0, 1) 100%);\n  \"\n>\n  <span style=\"margin-top: 4px; margin-left: 20px;\">AGENTES</span>\n</div>",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 8,
+        "x": 16,
+        "y": 53
+      },
+      "id": 32,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div \n  style=\"\n    font-size: 20px;\n    font-weight: bold; \n    font-family: 'Flexo'; \n    display: flex; \n    justify-content: left; \n    align-items: center; \n    height: 30px;\n    margin-bottom: 0;\n    border-radius: 2px 20px 20px 2px;\n    background: #002D74;\n    background: linear-gradient(90deg, rgba(0, 45, 116, 1) 0%, rgba(225, 79, 0, 1) 100%);\n  \"\n>\n  <span style=\"margin-top: 4px; margin-left: 20px;\">NSAT</span>\n</div>",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 55
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"A8QM\", \r\n\t\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"A8QM\", \r\n\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"A8QM\", \r\n\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "A8QM",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 55
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"A8QH\", \r\n\t\t\t\tzos_cics_region_name=~\"AG2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"A8QH\", \r\n\t\t\tzos_cics_region_name=~\"AG2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"A8QH\", \r\n\t\t\tzos_cics_region_name=~\"AG2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "A8QH",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 55
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"NSLC\", \r\n\t\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"NSLC\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"NSLC\", \r\n\t\t\tzos_cics_region_name=~\"AZ2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "NSLC",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 64
+      },
+      "id": 33,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div \n  style=\"\n    font-size: 20px;\n    font-weight: bold; \n    font-family: 'Flexo'; \n    display: flex; \n    justify-content: left; \n    align-items: center; \n    height: 30px;\n    margin-bottom: 0;\n    border-radius: 2px 20px 20px 2px;\n    background: #002D74;\n    background: linear-gradient(90deg, rgba(0, 45, 116, 1) 0%, rgba(225, 79, 0, 1) 100%);\n  \"\n>\n  <span style=\"margin-top: 4px; margin-left: 20px;\">P O S</span>\n</div>",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 66
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"AFC3\", \r\n\t\t\t\tzos_cics_region_name=~\"A2212AO1|A222CICS\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"AFC3\", \r\n\t\t\tzos_cics_region_name=~\"A2212AO1|A222CICS\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"AFC3\", \r\n\t\t\tzos_cics_region_name=~\"A2212AO1|A222CICS\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "AFC3 - CARGOS",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 66
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"AFC7\", \r\n\t\t\t\tzos_cics_region_name=~\"AU2.*|A2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"AFC7\", \r\n\t\t\tzos_cics_region_name=~\"AU2.*|A2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"AFC7\", \r\n\t\t\tzos_cics_region_name=~\"AU2.*|A2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "AFC7 - ABONOS",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 66
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"AF06\", \r\n\t\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"AF06\", \r\n\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"AF06\", \r\n\t\t\tzos_cics_region_name=~\"A52.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "AF06",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 75
+      },
+      "id": 34,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div \n  style=\"\n    font-size: 20px;\n    font-weight: bold; \n    font-family: 'Flexo'; \n    display: flex; \n    justify-content: left; \n    align-items: center; \n    height: 30px;\n    margin-bottom: 0;\n    border-radius: 2px 20px 20px 2px;\n    background: #002D74;\n    background: linear-gradient(90deg, rgba(0, 45, 116, 1) 0%, rgba(225, 79, 0, 1) 100%);\n  \"\n>\n  <span style=\"margin-top: 4px; margin-left: 20px;\">A T M</span>\n</div>",
+        "mode": "markdown"
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transactions"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "short"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.gradientMode",
+                "value": "opacity"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 30
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 77
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "(\r\n\tsum by(span_name) (\r\n\t\tincrease(\r\n\t\t\ttraces_spanmetrics_calls_total{\r\n\t\t\t\tspan_name=\"AFC2\", \r\n\t\t\t\tzos_cics_region_name=~\"AU2.*|A2.*\", \r\n\t\t\t\tos_type=\"z_os\"\r\n\t\t\t}[2m]\r\n\t\t) / 2\r\n\t)\r\n)",
+          "legendFormat": "Transactions",
+          "range": true,
+          "refId": "Transactions"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_sum{\r\n\t\t\tspan_name=\"AFC2\", \r\n\t\t\tzos_cics_region_name=~\"AU2.*|A2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t) \r\n) / \r\nsum by(span_name) (\r\n\tincrease(\r\n\t\ttraces_spanmetrics_latency_count{\r\n\t\t\tspan_name=\"AFC2\", \r\n\t\t\tzos_cics_region_name=~\"AU2.*|A2.*\", \r\n\t\t\tos_type=\"z_os\"\r\n\t\t}[2m]\r\n\t)\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Response Time",
+          "range": true,
+          "refId": "Response Time"
+        }
+      ],
+      "title": "AFC2 - OPERACIONES",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 86
+      },
+      "id": 35,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<h3 style=\"text-align: center; font-weight: bold; font-family: Flexo\">\n  By IT Operation Management\n</h3>",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.0-19174562009",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 42,
+  "tags": [
+    "Omar Calderon",
+    "Event Management",
+    "IT Operation Management"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "30s",
+      "1m",
+      "5m"
+    ]
+  },
+  "timezone": "browser",
+  "title": "🚀 ITOM - Mainframe Top Transactions BCP",
+  "uid": "omms6vq",
+  "version": 32
+}
